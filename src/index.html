@@ -1,15 +1,32 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
+    <title>Cat Search</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/slim-select@1.26.0/dist/slimselect.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cssloaders.github.io/css-loaders/01/index.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/notiflix@3.2.5/dist/notiflix-aio-3.2.5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slim-select@1.26.0/dist/slimselect.min.js"></script>
   </head>
   <body>
-    <h1>Example title</h1>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
+    <h1>Cat Search</h1>
+    <div class="loader loader-default hidden"></div>
+    <select id="breed-select" class="breed-select hidden"></select>
+    <div class="cat-info hidden">
+      <img id="cat-image" alt="Cat Image" />
+      <h2 id="cat-name"></h2>
+      <p id="cat-description"></p>
+      <p id="cat-temperament"></p>
+    </div>
+    <script src="script.js"></script>
   </body>
 </html>
