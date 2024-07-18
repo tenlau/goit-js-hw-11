@@ -2,6 +2,15 @@
     display: none;
 }
 
+.loader {
+    font-size: 1.5em;
+    color: #666;
+}
+
+.error {
+    color: red;
+}
+
 .cat-info {
     margin-top: 20px;
 }
