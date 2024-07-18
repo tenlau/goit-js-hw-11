@@ -1,6 +1,7 @@
 axios.defaults.headers.common['x-api-key'] = 'live_KVqvwaAa6teI6yX5S6NngCptrawdrNzNRIoT6vNRhC0X6ivirP6Q0EQLI3FGsEwk';
 
 const loader = document.querySelector('.loader');
+const error = document.querySelector('.error');
 const breedSelect = document.querySelector('.breed-select');
 const catInfo = document.querySelector('.cat-info');
 const catImage = document.getElementById('cat-image');
@@ -14,6 +15,14 @@ function showLoader() {
 
 function hideLoader() {
     loader.classList.add('hidden');
+}
+
+function showError() {
+    error.classList.remove('hidden');
+}
+
+function hideError() {
+    error.classList.add('hidden');
 }
 
 function showCatInfo() {
@@ -34,6 +43,7 @@ function hideBreedSelect() {
 
 function fetchBreeds() {
     showLoader();
+    hideError();
     hideBreedSelect();
     axios.get('https://api.thecatapi.com/v1/breeds')
         .then(response => {
@@ -45,11 +55,12 @@ function fetchBreeds() {
                 breedSelect.appendChild(option);
             });
             new SlimSelect({
-                select: '#breed-select'
+                select: '.breed-select'
             });
             showBreedSelect();
         })
         .catch(error => {
+            showError();
             Notiflix.Notify.failure('Error fetching breeds. Please try again later.');
             console.error('Error fetching breeds:', error);
         })
@@ -60,6 +71,7 @@ function fetchBreeds() {
 
 function fetchCatByBreed(breedId) {
     showLoader();
+    hideError();
     hideCatInfo();
     axios.get(`https://api.thecatapi.com/v1/images/search?breed_ids=${breedId}`)
         .then(response => {
@@ -72,6 +84,7 @@ function fetchCatByBreed(breedId) {
             showCatInfo();
         })
         .catch(error => {
+            showError();
             Notiflix.Notify.failure('Error fetching cat information. Please try again later.');
             console.error('Error fetching cat by breed:', error);
         })
