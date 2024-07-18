@@ -1,4 +1,4 @@
-axios.defaults.headers.common['x-api-key'] = 'live_KVqvwaAa6teI6yX5S6NngCptrawdrNzNRIoT6vNRhC0X6ivirP6Q0EQLI3FGsEwk';
+import { fetchBreeds, fetchCatByBreed } from './cat-api.js';
 
 const loader = document.querySelector('.loader');
 const error = document.querySelector('.error');
@@ -41,13 +41,12 @@ function hideBreedSelect() {
     breedSelect.classList.add('hidden');
 }
 
-function fetchBreeds() {
+function loadBreeds() {
     showLoader();
     hideError();
     hideBreedSelect();
-    axios.get('https://api.thecatapi.com/v1/breeds')
-        .then(response => {
-            const breeds = response.data;
+    fetchBreeds()
+        .then(breeds => {
             breeds.forEach(breed => {
                 const option = document.createElement('option');
                 option.value = breed.id;
@@ -59,34 +58,32 @@ function fetchBreeds() {
             });
             showBreedSelect();
         })
-        .catch(error => {
+        .catch(() => {
             showError();
             Notiflix.Notify.failure('Error fetching breeds. Please try again later.');
-            console.error('Error fetching breeds:', error);
         })
         .finally(() => {
             hideLoader();
         });
 }
 
-function fetchCatByBreed(breedId) {
+function loadCatByBreed(breedId) {
     showLoader();
     hideError();
     hideCatInfo();
-    axios.get(`https://api.thecatapi.com/v1/images/search?breed_ids=${breedId}`)
-        .then(response => {
-            const catData = response.data[0];
-            catImage.src = catData.url;
-            const breed = catData.breeds[0];
+    fetchCatByBreed(breedId)
+        .then(catData => {
+            const cat = catData[0];
+            catImage.src = cat.url;
+            const breed = cat.breeds[0];
             catName.textContent = breed.name;
             catDescription.textContent = breed.description;
             catTemperament.textContent = breed.temperament;
             showCatInfo();
         })
-        .catch(error => {
+        .catch(() => {
             showError();
             Notiflix.Notify.failure('Error fetching cat information. Please try again later.');
-            console.error('Error fetching cat by breed:', error);
         })
         .finally(() => {
             hideLoader();
@@ -95,8 +92,8 @@ function fetchCatByBreed(breedId) {
 
 breedSelect.addEventListener('change', () => {
     const selectedBreedId = breedSelect.value;
-    fetchCatByBreed(selectedBreedId);
+    loadCatByBreed(selectedBreedId);
 });
 
 // Fetch breeds when the page loads
-fetchBreeds();
+loadBreeds();
