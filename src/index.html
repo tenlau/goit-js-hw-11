@@ -1,32 +1,25 @@
-<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cat Search</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/slim-select@1.26.0/dist/slimselect.min.css"
-    />
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cssloaders.github.io/css-loaders/01/index.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slim-select@1.26.0/dist/slimselect.min.css">
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/notiflix@3.2.5/dist/notiflix-aio-3.2.5.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slim-select@1.26.0/dist/slimselect.min.js"></script>
-  </head>
-  <body>
+</head>
+<body>
     <h1>Cat Search</h1>
-    <div class="loader loader-default hidden"></div>
-    <select id="breed-select" class="breed-select hidden"></select>
+    <select class="breed-select"></select>
+    <p class="loader hidden">Loading data, please wait...</p>
+    <p class="error hidden">Oops! Something went wrong! Try reloading the page!</p>
     <div class="cat-info hidden">
-      <img id="cat-image" alt="Cat Image" />
-      <h2 id="cat-name"></h2>
-      <p id="cat-description"></p>
-      <p id="cat-temperament"></p>
+        <img id="cat-image" alt="Cat Image">
+        <h2 id="cat-name"></h2>
+        <p id="cat-description"></p>
+        <p id="cat-temperament"></p>
     </div>
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
