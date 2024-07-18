@@ -45,7 +45,7 @@ function fetchBreeds() {
     showLoader();
     hideError();
     hideBreedSelect();
-    axios.get('https://api.thecatapi.com/v1/breeds')
+    axios.get('https://api.thecatapi.com/v1/breeds123')
         .then(response => {
             const breeds = response.data;
             breeds.forEach(breed => {
