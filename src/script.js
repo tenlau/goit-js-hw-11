@@ -9,6 +9,7 @@ const loadMoreButton = document.querySelector('.load-more');
 
 searchForm.addEventListener('submit', onSearch);
 loadMoreButton.addEventListener('click', onLoadMore);
+Notiflix.Notify.success('Notiflix is working!');
 
 function onSearch(event) {
   event.preventDefault();
@@ -28,6 +29,7 @@ function onLoadMore() {
 }
 
 function fetchImages(query, page) {
+  console.log(`Fetching images for query: "${query}", page: ${page}`);  // Debug log
   axios
     .get(BASE_URL, {
       params: {
@@ -42,6 +44,7 @@ function fetchImages(query, page) {
     })
     .then(response => {
       const { hits, totalHits } = response.data;
+      console.log(`Total Hits: ${totalHits}, Hits Length: ${hits.length}`);  // Debug log
       if (hits.length === 0) {
         Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.');
         return;
@@ -97,4 +100,3 @@ function smoothScroll() {
     behavior: 'smooth',
   });
 }
-
