@@ -9,7 +9,6 @@ const loadMoreButton = document.querySelector('.load-more');
 
 searchForm.addEventListener('submit', onSearch);
 loadMoreButton.addEventListener('click', onLoadMore);
-Notiflix.Notify.success('Notiflix is working!');
 
 function onSearch(event) {
   event.preventDefault();
@@ -39,7 +38,7 @@ function fetchImages(query, page) {
         orientation: 'horizontal',
         safesearch: true,
         page: page,
-        per_page: 10,
+        per_page: 20,
       },
     })
     .then(response => {
