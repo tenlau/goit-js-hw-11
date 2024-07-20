@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Search</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/notiflix/dist/notiflix-3.2.4.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/simplelightbox/dist/simple-lightbox.min.css"
+    />
+  </head>
+  <body>
+    <form class="search-form" id="search-form">
+      <input
+        type="text"
+        name="searchQuery"
+        autocomplete="off"
+        placeholder="Search images..."
+      />
+      <button type="submit">Search</button>
+    </form>
+    <div class="gallery"></div>
+    <button type="button" class="load-more hidden">Load more</button>
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/notiflix/dist/notiflix-aio-3.2.4.min.js"></script>
+    <script src="https://unpkg.com/simplelightbox/dist/simple-lightbox.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
