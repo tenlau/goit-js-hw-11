@@ -2,24 +2,26 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://tenlau.github.io/goit-js-hw-10",
+  "homepage": "https://tenlau.github.io/goit-js-hw-11",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /goit-js-hw-10/"
+    "build": "parcel build src/*.html --public-url /goit-js-hw-11/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tenlau/goit-js-hw-10.git"
+    "url": "git+https://github.com/tenlau/goit-js-hw-11.git"
   },
   "keywords": [],
   "author": "Laurentiu Sorin TENE <sorin.tene@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tenlau/goit-js-hw-10/issues"
+    "url": "https://github.com/tenlau/goit-js-hw-11/issues"
   },
   "dependencies": {
     "axios": "^1.7.2",
-    "modern-normalize": "^1.1.0"
+    "modern-normalize": "^1.1.0",
+    "notiflix": "^3.2.7",
+    "simple-lightbox": "^2.1.0"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
